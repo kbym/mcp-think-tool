@@ -35,7 +35,7 @@ class ThinkToolServer:
             })
             
             # Return a confirmation
-            return f"Thought recorded: {thought[:50]}..." if len(thought) > 50 else f"Thought recorded: {thought}"
+            return thought
 
         @self.mcp.tool()
         async def get_thoughts() -> str:
