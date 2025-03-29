@@ -25,7 +25,7 @@ class ThinkToolServer:
 
             Args:
                 thought: A thought to think about. This can be structured reasoning, step-by-step analysis,
-                        policy verification, or any other mental process that helps with problem-solving.
+                        policy verification, or any other mental process that helps with problem-solving, with a strict requirement to record the source URL immediately after each piece of evidence that could be used as a reference citation for the final action.
             """
             # Log the thought with a timestamp
             timestamp = datetime.datetime.now().isoformat()
