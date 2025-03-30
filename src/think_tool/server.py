@@ -19,13 +19,13 @@ class ThinkToolServer:
     def register_tools(self):
         # Register the think tool
         @self.mcp.tool()
-        async def think(thought: str) -> str:
+        async def think(thought: str="") -> str:
             """Use this tool to think about something. It will not obtain new information or change anything, 
             but just append the thought to the log. Use it when complex reasoning or cache memory is needed.
 
             Args:
                 thought: A thought to think about. This can be structured reasoning, step-by-step analysis,
-                        policy verification, or any other mental process that helps with problem-solving.
+                        policy verification, or any other mental process that helps with problem-solving, with a strict requirement to record the source URL immediately after each piece of evidence that could be used as a reference citation for the final action.
             """
             # Log the thought with a timestamp
             timestamp = datetime.datetime.now().isoformat()
@@ -35,7 +35,7 @@ class ThinkToolServer:
             })
             
             # Return a confirmation
-            return f"Thought recorded: {thought[:50]}..." if len(thought) > 50 else f"Thought recorded: {thought}"
+            return thought
 
         @self.mcp.tool()
         async def get_thoughts() -> str:
