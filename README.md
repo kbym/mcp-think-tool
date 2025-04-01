@@ -23,6 +23,7 @@ pip install mcp-think-tool
 
 ## Configuration
 
+### Windsurf
 To use this tool with Claude in Windsurf, add the following configuration to your MCP config file:
 
 ```json
@@ -37,3 +38,24 @@ To use this tool with Claude in Windsurf, add the following configuration to you
 ```
 
 The `command` field should point to the directory where you installed the python package using pip.
+
+### Docker
+
+You can install this MCP server with only the Dockerfile
+
+First download the Dockerfile, navigate to its directory, and build the Docker image
+
+````
+docker build -t mcp-think-tool .
+````
+
+Then add the following configuration your MCP config file
+
+````json
+"think": {
+    "command": "docker",
+    "args": ["run", "--rm", "-i", "mcp-think-tool"]
+}
+````
+
+This was tested and working with **Claude Desktop** and **Cursor**
